@@ -57,3 +57,18 @@ axes[1].set_xlabel("Age", fontsize = 10)
 axes[1].set_ylabel('count')
 axes[1].set_title('Age Distribution if (No)')
 print(plt.show())
+
+#job distribution graphs with age
+graph_layout = sns.FacetGrid(dataset, col = 'job', hue = 'y', col_wrap=3)
+graph_layout.map(plt.hist, 'age')
+print(plt.show())
+
+#education distribution graphs with age
+graph_layout = sns.FacetGrid(dataset, col = 'education', hue = 'y', col_wrap=4)
+graph_layout.map(plt.hist, 'age')
+print(plt.show())
+
+#marital distribution graphs with age
+graph_layout = sns.FacetGrid(dataset, col = 'marital', hue = 'y', col_wrap=4)
+graph_layout.map(plt.hist, 'age')
+print(plt.show())
