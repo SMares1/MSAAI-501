@@ -72,3 +72,18 @@ print(plt.show())
 graph_layout = sns.FacetGrid(dataset, col = 'marital', hue = 'y', col_wrap=4)
 graph_layout.map(plt.hist, 'age')
 print(plt.show())
+
+#duration of the last phone call based on decision (Y/N)
+sns.catplot(data = dataset, x = 'y', y = 'duration')
+print(plt.show())
+
+##Categorical Pre-Processing
+
+dataset['job'] = dataset['job'].str.replace('-','_').str.replace('.','', regex=True)
+print(dataset['job'].value_counts())
+
+#print out 'poutcome', the outcome of the previous marketing campaign
+print(dataset['poutcome'].value_counts())
+
+contingency_table = pd.crosstab(dataset['y'], dataset['job'], margins = True)
+print(contingency_table)
