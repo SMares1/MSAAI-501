@@ -87,3 +87,8 @@ print(dataset['poutcome'].value_counts())
 
 contingency_table = pd.crosstab(dataset['y'], dataset['job'], margins = True)
 print(contingency_table)
+
+##svm model
+label = LabelEncoder()
+dataset.job = label.fit_transform(dataset.job)
+dataset.marital = label.fit_transform(dataset.marital)
