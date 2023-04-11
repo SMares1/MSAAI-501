@@ -4,6 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+from sklearn.preprocessing import StandardScaler 
 from sklearn.svm import SVC
 
 ##Data Preparation
@@ -103,6 +104,10 @@ dataset.day = label.fit_transform(dataset.day)
 dataset.poutcome = label.fit_transform(dataset.poutcome)
 
 print(dataset.job.values)
+
+#Scale numerical values
+scaler = StandardScaler()
+dataset[['age','campaign','pdays', 'previous']] = scaler.fit_transform(dataset[['age','campaign','pdays', 'previous']])
 
 ##print a heatmap of the values
 x = dataset.iloc[:,:-1].values
