@@ -115,3 +115,6 @@ x_train, x_test, y_train, y_test = train_test_split(x,y,train_size = 0.25, rando
 svm = SVC()
 print(svm.fit(x_train, y_train))
 print(svm.score(x_test, y_test))
+
+#Predict the outcome of the support vector machine (svm) given some numbers
+print(svm.predict([[52,3,3,2,1,1,1,1,1,1,1,3,3,2,1,1]]))
