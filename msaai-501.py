@@ -4,6 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+from sklearn.svm import SVC
 
 ##Data Preparation
 dataset = pd.read_csv('bank-full.csv', engine = 'python')
@@ -92,3 +93,25 @@ print(contingency_table)
 label = LabelEncoder()
 dataset.job = label.fit_transform(dataset.job)
 dataset.marital = label.fit_transform(dataset.marital)
+dataset.education = label.fit_transform(dataset.education)
+dataset.default = label.fit_transform(dataset.default)
+dataset.housing = label.fit_transform(dataset.housing)
+dataset.loan = label.fit_transform(dataset.loan)
+dataset.contact = label.fit_transform(dataset.contact)
+dataset.month = label.fit_transform(dataset.month)
+dataset.day = label.fit_transform(dataset.day)
+dataset.poutcome = label.fit_transform(dataset.poutcome)
+
+print(dataset.job.values)
+
+##print a heatmap of the values
+x = dataset.iloc[:,:-1].values
+y = dataset.iloc[:,-1].values
+sns.heatmap(data = dataset.corr())
+print(plt.show())
+
+#conduct a train_test_split on the data of x and y
+x_train, x_test, y_train, y_test = train_test_split(x,y,train_size = 0.25, random_state = 0)
+svm = SVC()
+print(svm.fit(x_train, y_train))
+print(svm.score(x_test, y_test))
