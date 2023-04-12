@@ -8,7 +8,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 
 ##Data Preparation
-dataset = pd.read_csv('bank-full.csv', engine = 'python')
+dataset = pd.read_csv('bank-additional-full.csv', engine = 'python')
 print(dataset.head())
 print(dataset.columns)
 dataset.describe()
@@ -100,14 +100,14 @@ dataset.housing = label.fit_transform(dataset.housing)
 dataset.loan = label.fit_transform(dataset.loan)
 dataset.contact = label.fit_transform(dataset.contact)
 dataset.month = label.fit_transform(dataset.month)
-dataset.day = label.fit_transform(dataset.day)
+dataset.day_of_week = label.fit_transform(dataset.day_of_week)
 dataset.poutcome = label.fit_transform(dataset.poutcome)
 
 print(dataset.job.values)
 
 #Scale numerical values
 scaler = StandardScaler()
-dataset[['age','campaign','pdays', 'previous']] = scaler.fit_transform(dataset[['age','campaign','pdays', 'previous']])
+dataset[['age','campaign','pdays', 'previous','emp.var.rate','cons.price.idx','cons.conf.idx','euribor3m','nr.employed']] = scaler.fit_transform(dataset[['age','campaign','pdays', 'previous', 'emp.var.rate','cons.price.idx','cons.conf.idx','euribor3m','nr.employed']])
 
 ##print a heatmap of the values
 x = dataset.iloc[:,:-1].values
