@@ -107,7 +107,7 @@ print(dataset.job.values)
 
 #Scale numerical values
 scaler = StandardScaler()
-dataset[['age','campaign','pdays', 'previous','emp.var.rate','cons.price.idx','cons.conf.idx','euribor3m','nr.employed']] = scaler.fit_transform(dataset[['age','campaign','pdays', 'previous', 'emp.var.rate','cons.price.idx','cons.conf.idx','euribor3m','nr.employed']])
+dataset[['age','campaign','pdays', 'previous','emp_var_rate','cons_price_idx','cons_conf_idx','euribor3m','nr_employed']] = scaler.fit_transform(dataset[['age','campaign','pdays', 'previous', 'emp_var_rate','cons_price_idx','cons_conf_idx','euribor3m','nr_employed']])
 
 ##print a heatmap of the values
 x = dataset.iloc[:,:-1].values
