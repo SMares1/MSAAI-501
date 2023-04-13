@@ -108,7 +108,7 @@ print(dataset.job.values)
 
 #Scale numerical values
 scaler = StandardScaler()
-dataset[['age','campaign','pdays', 'previous','emp_var_rate','cons_price_idx','cons_conf_idx','euribor3m','nr_employed']] = scaler.fit_transform(dataset[['age','campaign','pdays', 'previous', 'emp_var_rate','cons_price_idx','cons_conf_idx','euribor3m','nr_employed']])
+dataset[['age','campaign','pdays', 'previous']] = scaler.fit_transform(dataset[['age','campaign','pdays', 'previous']])
 
 ##print a heatmap of the values
 x = dataset.iloc[:,:-1].values
@@ -123,6 +123,5 @@ print(svm.fit(x_train, y_train))
 print(svm.score(x_test, y_test))
 
 #Predict the outcome of the support vector machine (svm) given some numbers
-
 svm_predict = svm.predict(x_test)
 print(classification_report(y_test, svm_predict))
