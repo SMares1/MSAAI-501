@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.preprocessing import StandardScaler 
+from sklearn.metrics import classification_report
 from sklearn.svm import SVC
 
 ##Data Preparation
@@ -122,4 +123,6 @@ print(svm.fit(x_train, y_train))
 print(svm.score(x_test, y_test))
 
 #Predict the outcome of the support vector machine (svm) given some numbers
-print(svm.predict([[52,3,3,2,1,1,1,1,1,1,1,3,3,2,1,1]]))
+
+svm_predict = svm.predict(x_test)
+print(classification_report(y_test, svm_predict))
