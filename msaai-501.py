@@ -9,7 +9,7 @@ from sklearn.metrics import classification_report
 from sklearn.svm import SVC
 
 ##Data Preparation
-dataset = pd.read_csv('bank-additional-full.csv', engine = 'python')
+dataset = pd.read_csv('bank-full.csv', engine = 'python')
 print(dataset.head())
 print(dataset.columns)
 dataset.describe()
