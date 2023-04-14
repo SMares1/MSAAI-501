@@ -80,6 +80,10 @@ print(plt.show())
 sns.catplot(data = dataset, x = 'y', y = 'duration')
 print(plt.show())
 
+tc = dataset.corr()
+sns.heatmap(tc)
+print(plt.show())
+
 ##Categorical Pre-Processing
 
 dataset['job'] = dataset['job'].str.replace('-','_').str.replace('.','', regex=True)
